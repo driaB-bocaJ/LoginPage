@@ -1,0 +1,66 @@
+<LoginManager>:
+   LoginPage:
+      name: "login"
+   NewUser:
+      name: "new"
+   WelcomeScreen:
+      name: "welcome"
+
+
+
+
+
+
+<LoginPage>
+   BoxLayout:
+      orientation: "horizontal"
+      Label:
+         text: ""
+
+      BoxLayout:
+         orientation: "vertical"
+         Label:
+            text: "Please Enter Your Username and Password"
+         TextInput:
+            id: username
+            hint_text: "Enter Username"
+            size_hint: 1,.5
+         TextInput:
+            id: password
+            hint_text: "Enter Password"
+            size_hint: 1,.5
+         Button:
+            text: "Login"
+            color: "black"
+            size_hint: 1,.5
+            on_release: root.check_user(username.text, password.text)
+         Button:
+            text: "Create New User"
+            color: "black"
+            size_hint: 1,.25
+            on_release: root.new_account()
+         Label:
+            text: ""
+            id: blank
+      Label:
+         text: ""
+
+
+<WelcomeScreen>
+   Label:
+      text: "Welcome!"
+<NewUser>
+   BoxLayout:
+      orientation: "vertical"
+      TextInput:
+         id: new_username
+         hint_text: "Please Enter a New Username"
+      TextInput:
+         id: new_password
+         hint_text: "Please Enter a New Password"
+      Button:
+         text: "Create New User"
+         color: "black"
+         on_release: root.set_user(new_username.text, new_password.text)
+      Label:
+         text: "Password Must Contain 1 Capital Letter \nMust Contain 1 lower case letter\nMust Contain 1 Number\nMust Contain 1 Special Character\nMust be 8 characters long"
